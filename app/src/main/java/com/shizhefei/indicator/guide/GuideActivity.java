@@ -16,6 +16,9 @@ import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.IndicatorViewPager.IndicatorPagerAdapter;
 import com.shizhefei.view.indicator.IndicatorViewPager.IndicatorViewPagerAdapter;
 
+/**
+ * todo 明白了adapter的两个view
+ */
 public class GuideActivity extends FragmentActivity {
     private IndicatorViewPager indicatorViewPager;
     private LayoutInflater inflate;
@@ -23,7 +26,7 @@ public class GuideActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
-        setContentView(R.layout.activity_guide);
+        setContentView(R.layout.activity_guide);  // TODO: 2016/10/26 用的是merge
         //ViewPager,Indicator
         ViewPager viewPager = (ViewPager) findViewById(R.id.guide_viewPager);
         Indicator indicator = (Indicator) findViewById(R.id.guide_indicator);
@@ -57,6 +60,7 @@ public class GuideActivity extends FragmentActivity {
 
         @Override
         public View getViewForTab(int position, View convertView, ViewGroup container) {
+            // TODO: 2016/10/26 这里设置指示器view
             if (convertView == null) {
                 convertView = inflate.inflate(R.layout.tab_guide, container, false);
             }
@@ -65,6 +69,7 @@ public class GuideActivity extends FragmentActivity {
 
         @Override
         public View getViewForPage(int position, View convertView, ViewGroup container) {
+            // TODO: 2016/10/26 这里设置viewpager的view
             if (convertView == null) {
                 convertView = new View(getApplicationContext());
                 convertView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
