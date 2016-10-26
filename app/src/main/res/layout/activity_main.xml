@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickBanner"
-            android:text="轮播Banner" />
+            android:text="BannerActivity" />
 
         <Button
             android:id="@+id/button1"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickGuide"
-            android:text="引导界面(FixedIndicatorView)" />
+            android:text="GuideActivity(FixedIndicatorView)" />
 
         <Button
             android:id="@+id/button2"
@@ -32,42 +32,42 @@
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickTabMain"
-            android:text="tab主界面(FixedIndicatorView)" />
+            android:text="TabMainActivity tab主界面(FixedIndicatorView)" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickSlideTab"
-            android:text="可滑动tab界面(ScrollIndicatorView)" />
+            android:text="MoreTab2Activity可滑动tab界面(ScrollIndicatorView)" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickSlideTab2"
-            android:text="可滑动tab界面(ScrollIndicatorView详细配置)" />
+            android:text="MoreTabActivity滑动tab界面\n(ScrollIndicatorView详细配置)" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickSpringTab"
-            android:text="springtab界面(ScrollIndicatorView)" />
+            android:text="SpringActivity界面(ScrollIndicatorView)" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickYear"
-            android:text="无数tab的界面(RecyclerIndicatorView)" />
+            android:text="YearActivity无数tab的界面(RecyclerIndicatorView)" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:onClick="onClickTabs"
-            android:text="不集成ViewPager的Indicator使用方式" />
+            android:text="SingleTabActivity\n不集成ViewPager的Indicator使用方式" />
     </LinearLayout>
 
 </merge>
