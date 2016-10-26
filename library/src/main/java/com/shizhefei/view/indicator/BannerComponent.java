@@ -12,8 +12,11 @@ import com.shizhefei.view.viewpager.SViewPager;
 
 import java.lang.reflect.Field;
 
-/**
- * 轮播Banner
+/**todo
+ *
+ * IndicatorViewPager的扩展版
+ * 组合viewpager和指示器,少不了handler.post 与 viewpager.setCurrentItem() 控制器就是handler的 handleMessage
+ * 方法在自定义的handler里 AutoPlayHandler
  * Created by LuckyJayce on 2016/7/30.
  */
 public class BannerComponent extends IndicatorViewPager {
@@ -24,19 +27,23 @@ public class BannerComponent extends IndicatorViewPager {
 
     public BannerComponent(Indicator indicator, ViewPager viewPager, boolean indicatorClickable) {
         super(indicator, viewPager, indicatorClickable);
+        // TODO: 2016/10/26 设置handler  viewPager.setCurrentItem(current + 1) 发送消息
         handler = new AutoPlayHandler(Looper.getMainLooper());
+        // TODO: 2016/10/26 设置触摸监听
         viewPager.setOnTouchListener(onTouchListener);
+        //设置scroller
         initViewPagerScroll();
     }
 
 
     private void initViewPagerScroll() {
+        // TODO: 2016/10/26 重要 反射获取类的参数并修改某一对象的参数值
         try {
-            Field mScroller = ViewPager.class.getDeclaredField("mScroller");
-            mScroller.setAccessible(true);
+            Field mScroller = ViewPager.class.getDeclaredField("mScroller"); //viewpager中的参数mmScroller
+            mScroller.setAccessible(true);  //无障碍
             scroller = new DurationScroller(
-                    viewPager.getContext());
-            mScroller.set(viewPager, scroller);
+                    viewPager.getContext()); //scroller的子类
+            mScroller.set(viewPager, scroller); //把这个viewpager的scroller设置成我想要的
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         } catch (IllegalArgumentException e) {
@@ -92,6 +99,7 @@ public class BannerComponent extends IndicatorViewPager {
 
     @Override
     public void setCurrentItem(int item, boolean anim) {
+        // TODO: 2016/10/26 指示器的跳动
         int count = mAdapter.getCount();
         if (count > 0) {
             int current = viewPager.getCurrentItem();
@@ -123,7 +131,7 @@ public class BannerComponent extends IndicatorViewPager {
         int count = mAdapter.getCount();
         int center = Integer.MAX_VALUE / 2;
         if (count > 0) {
-            center = center - center % count;
+            center = center - center % count; // TODO: 2016/10/26 这个值计算的不知道有什么用处,只能说是个初始值吧,没什么要紧的
         }
         viewPager.setCurrentItem(center, false);
     }
@@ -155,6 +163,7 @@ public class BannerComponent extends IndicatorViewPager {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
+            // TODO: 2016/10/26 viewpager的滚动
             int current = viewPager.getCurrentItem();
             viewPager.setCurrentItem(current + 1, true);
             if (isRunning) {
@@ -163,6 +172,7 @@ public class BannerComponent extends IndicatorViewPager {
         }
     }
 
+    // TODO: 2016/10/26 控制滑动 down时取消handler,up时开始handler
     private View.OnTouchListener onTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {

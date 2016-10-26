@@ -28,11 +28,12 @@ public class SingleTabActivity extends FragmentActivity {
 
         ScrollIndicatorView scrollIndicatorView = (ScrollIndicatorView) findViewById(R.id.singleTab_scrollIndicatorView);
         FixedIndicatorView fixedIndicatorView = (FixedIndicatorView) findViewById(R.id.singleTab_fixedIndicatorView);
-        RecyclerIndicatorView recyclerIndicatorView = (RecyclerIndicatorView) findViewById(R.id.singleTab_reyclerIndicatorView);
+        final RecyclerIndicatorView recyclerIndicatorView = (RecyclerIndicatorView) findViewById(R.id.singleTab_reyclerIndicatorView);
 
         set(scrollIndicatorView, 16);
-        set(fixedIndicatorView, 5);
+        set(fixedIndicatorView, 18);
         set(recyclerIndicatorView, 10000);
+
     }
 
     private void set(Indicator indicator, int count) {

@@ -31,6 +31,7 @@ import com.shizhefei.view.viewpager.SViewPager;
 
 /**
  * 将indicatorView，ViewPager联合使用
+ * 他的子类BannerComponent
  */
 public class IndicatorViewPager {
     protected Indicator indicatorView;
@@ -45,6 +46,7 @@ public class IndicatorViewPager {
 
     public IndicatorViewPager(Indicator indicator, ViewPager viewPager, boolean indicatorClickable) {
         super();
+        // TODO: 2016/10/26 这里是结合
         this.indicatorView = indicator;
         this.viewPager = viewPager;
         indicator.setItemClickable(indicatorClickable);
